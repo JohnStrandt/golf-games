@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
-import "./index.css";
 import { Nav, Home, Match, Rules, Score } from "./sections";
+import "./index.css";
 
 function App() {
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+      document.body.classList.add(savedTheme);
+    } else {
+      document.body.classList.add("light");
+    }
+  }, []);
+
   return (
     <main className="h-screen w-screen flex flex-col">
       <BrowserRouter>
