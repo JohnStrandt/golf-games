@@ -42,7 +42,7 @@ const Nav = () => {
   };
 
   return (
-    <footer className="w-full absolute bottom-0 bg-border h-20">
+    <footer className="w-full absolute bottom-0 bg-base h-20 border-t border-primary">
       <ul className="h-full flex items-center place-content-around text-xs pb-4">
         <li>
           <CustomLink

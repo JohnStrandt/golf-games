@@ -2,7 +2,7 @@
 
 const NavButton = ({ label }) => {
   return (
-    <button className="w-1/2 h-14 bg-cyan-300 text-white rounded-lg">
+    <button className="w-1/3 h-12 border border-primary text-primary rounded-lg">
       {label}
     </button>
   );

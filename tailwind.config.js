@@ -1,15 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  mode: "jit",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ["Montserrat", "sans-serif"],
+    },
     extend: {
       colors: {
+        base: "rgba(var(--base))",
         background: "rgba(var(--background))",
         primary: "rgba(var(--primary))",
-        secondary: "rgba(var(--secondary))",
         accent: "rgba(var(--accent))",
-        highlight: "rgba(var(--highlight))",
-        border: "rgba(var(--border))",
+        secondary: "rgba(var(--secondary))",
       },
     },
   },

@@ -1,26 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+}
+
 .light {
-  --background: 255, 255, 255;
-  --primary: 56, 55, 56;
   --secondary: 75, 85, 95;
-  --accent: 209, 225, 188;
-  --highlight: 155, 150, 151;
-  --border: 200, 200, 200;
+
+  /* used */
+  --background: 255, 255, 255;
+  --base: 230, 230, 240;
+  --primary: 70, 83, 96;
+  --accent: 34, 138, 150;
 
   background: rgba(var(--background));
 }
 
-/* Metroid Fusion */
 .dark {
-  --background: 32, 39, 62;
-  --primary: 40, 148, 187;
-  --secondary: 58, 24, 225;
-  --accent: 173, 89, 143;
-  --highlight: 244, 173, 191;
-  --border: 17, 22, 38;
+  --secondary: 249, 226, 175; /* yellow */
+
+  /* actually used so far: */
+  --background: 30, 30, 46;
+  --base: 24, 24, 37; /* navigation */
+  --primary: 205, 214, 244; /* text */
+  --accent: 56, 247, 20; /* neon green */
 
   background: rgba(var(--background));
 }
