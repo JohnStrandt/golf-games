@@ -13,7 +13,13 @@ export default defineConfig({
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
         theme_color: "#ffffff",
+        display: "standalone",
         icons: [
+          {
+            src: "favicons/apple-touch-icon.png",
+            sizes: "180x180",
+            rel: "apple-touch-icon",
+          },
           {
             src: "favicons/pwa-192x192.png",
             sizes: "192x192",
@@ -23,6 +29,18 @@ export default defineConfig({
             src: "favicons/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
           },
         ],
       },
