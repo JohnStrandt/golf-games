@@ -30,17 +30,6 @@ const Nav = ({ onClick }) => {
     );
   };
 
-  // const toggleTheme = () => {
-  //   const theme = localStorage.getItem("theme");
-  //   if (theme == "") {
-  //     document.body.classList.add("dark");
-  //     localStorage.setItem("theme", "dark");
-  //   } else {
-  //     document.body.classList.add("light");
-  //     localStorage.setItem("theme", "light");
-  //   }
-  // };
-
   return (
     <footer className="w-full absolute bottom-0 bg-base h-20 border-t border-primary">
       <ul className="h-full flex items-center place-content-around text-xs pb-4">

@@ -6,7 +6,7 @@ const PlayerScore = ({ name, score }) => {
   const [playerScore, setScore] = useState(score);
 
   return (
-    <div className="flex border border-primary text-primary h-16 w-full rounded-xl p-1">
+    <div className="flex border border-primary text-primary h-16 w-full bg-base rounded-xl p-1">
       <div className="flex w-3/5 my-auto">
         <span className="mx-auto text-xl">{name}</span>
       </div>
