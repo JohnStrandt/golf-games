@@ -4,7 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+* {
+  @apply transition-colors duration-200;
 }
 
 .light {

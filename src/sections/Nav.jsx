@@ -12,7 +12,7 @@ import { MdOutlineScoreboard, MdScoreboard } from "react-icons/md";
 import { RiBook2Fill, RiBook2Line } from "react-icons/ri";
 import { CgDarkMode } from "react-icons/cg";
 
-const Nav = () => {
+const Nav = ({ onClick }) => {
   //
   const CustomLink = ({ children, to, ...props }) => {
     let resolved = useResolvedPath(to);
@@ -30,16 +30,16 @@ const Nav = () => {
     );
   };
 
-  const toggleTheme = () => {
-    const theme = localStorage.getItem("theme");
-    if (theme == "light") {
-      document.body.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  // const toggleTheme = () => {
+  //   const theme = localStorage.getItem("theme");
+  //   if (theme == "") {
+  //     document.body.classList.add("dark");
+  //     localStorage.setItem("theme", "dark");
+  //   } else {
+  //     document.body.classList.add("light");
+  //     localStorage.setItem("theme", "light");
+  //   }
+  // };
 
   return (
     <footer className="w-full absolute bottom-0 bg-base h-20 border-t border-primary">
@@ -67,7 +67,8 @@ const Nav = () => {
         <li>
           <div
             className="flex flex-col items-center text-primary"
-            onClick={toggleTheme}
+            // onClick={toggleTheme}
+            onClick={onClick}
           >
             <CgDarkMode className="text-2xl" />
             <span>Theme</span>
