@@ -1,6 +1,6 @@
 const Rules = () => {
   return (
-    <section className="flex flex-col p-2 h-[calc(100vh-80px)] overflow-auto justify-around bg-background text-primary">
+    <section className="flex flex-col p-2 h-[calc(100vh-80px)] overflow-auto bg-background text-primary">
       <h1 className="mt-4 mb-10 text-center text-xl font-bold">Wolf</h1>
 
       <div className="mb-8">
