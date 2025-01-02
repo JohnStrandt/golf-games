@@ -8,6 +8,12 @@
   @apply transition-colors duration-200;
 }
 
+@layer base {
+  body {
+    @apply dark:bg-black;
+  }
+}
+
 .light {
   --secondary: 75, 85, 95;
   --wolf-dk-blue: 23, 56, 90;
