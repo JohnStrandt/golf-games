@@ -34,7 +34,7 @@ function App() {
             <Route path="/rules" element={<Rules />} />
             <Route path="/score" element={<Score />} />
           </Routes>
-          <Nav onClick={toggleDarkMode} />
+          <Nav toggleMode={toggleDarkMode} darkMode={darkMode} />
         </BrowserRouter>
       </div>
     </main>

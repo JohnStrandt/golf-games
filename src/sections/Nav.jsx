@@ -12,8 +12,7 @@ import { MdOutlineScoreboard, MdScoreboard } from "react-icons/md";
 import { RiBook2Fill, RiBook2Line } from "react-icons/ri";
 import { CgDarkMode } from "react-icons/cg";
 
-const Nav = ({ onClick }) => {
-  //
+const Nav = ({ toggleMode, darkMode }) => {
   const CustomLink = ({ children, to, ...props }) => {
     let resolved = useResolvedPath(to);
     let match = useMatch({ path: resolved.pathname, end: true });
@@ -56,11 +55,10 @@ const Nav = ({ onClick }) => {
         <li>
           <div
             className="flex flex-col items-center text-primary"
-            // onClick={toggleTheme}
-            onClick={onClick}
+            onClick={toggleMode}
           >
             <CgDarkMode className="text-2xl" />
-            <span>Theme</span>
+            {darkMode ? <span>light</span> : <span>dark</span>}
           </div>
         </li>
 
