@@ -8,7 +8,9 @@ const PlayerScore = ({ name, score, isWolf }) => {
 
   return (
     <div className="flex border border-primary text-primary h-16 w-full bg-base rounded-xl p-1">
-      <div className="flex w-1/5 my-auto">{isWolf ? <WolfIcon /> : null} </div>
+      <div className="flex w-1/5 justify-center items-center">
+        {isWolf ? <WolfIcon /> : null}
+      </div>
       <div className="flex w-2/5 my-auto">
         <span className="mx-auto text-xl">{name}</span>
       </div>
