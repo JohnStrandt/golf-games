@@ -3,8 +3,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 // theme_color: "#ffffff",
-//
-// https://vite.dev/config/
+
 export default defineConfig({
   plugins: [
     react(),
@@ -14,6 +13,7 @@ export default defineConfig({
         name: "Golf Games",
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
+        // theme_color: "#000000",
         display: "standalone",
         icons: [
           {
