@@ -44,7 +44,7 @@ const Rules = () => {
                 point.
               </li>
               <li>
-                Lone Wolf wins: Wolf wins six points, and the opponenets each
+                Lone Wolf wins: Wolf wins six points, and the opponents each
                 lose two points
               </li>
               <li>

@@ -9,10 +9,10 @@ const Match = () => {
         <span className=" text-5xl font-medium">{hole}</span>
       </div>
       <div className="flex flex-col gap-4">
-        <PlayerScore name="Fred" score={4} />
-        <PlayerScore name="Barney" score={3} />
-        <PlayerScore name="Wilma" score={5} />
-        <PlayerScore name="Betty" score={5} />
+        <PlayerScore name="Fred" score={4} isWolf={true} />
+        <PlayerScore name="Barney" score={3} isWolf={false} />
+        <PlayerScore name="Wilma" score={5} isWolf={false} />
+        <PlayerScore name="Betty" score={5} isWolf={false} />
       </div>
       <div className="flex w-full justify-center">
         <Button label="score" />
