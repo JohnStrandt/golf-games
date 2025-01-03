@@ -14,7 +14,7 @@ export default defineConfig({
         name: "Golf Games",
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
-        theme_color: "#000000",
+        // theme_color: "#000000", //was "#ffffff"
         display: "standalone",
         icons: [
           {
