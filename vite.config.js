@@ -8,6 +8,16 @@ import { VitePWA } from "vite-plugin-pwa";
 // mobile_web_app_capable: "yes",
 // apple_mobile_web_app_status_bar_style: "black-translucent",
 //
+//  It took several hours for changes to this file to take effect.
+//  I changed theme_color to black (#000000), didn't update on my
+//  phone until the next day after pushing to netlify.
+//
+//  So, I removed the theme_color completely to see if the status bar
+//  settings in index.html might actually take effect.
+//
+//  If it doesn't work, I will try adding the settings to this file.
+//  for now, I will work on other things.
+//
 export default defineConfig({
   plugins: [
     react(),
@@ -17,7 +27,6 @@ export default defineConfig({
         name: "Golf Games",
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
-        theme_color: "#000000",
         display: "standalone",
         icons: [
           {
