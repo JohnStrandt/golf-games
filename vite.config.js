@@ -4,6 +4,10 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // background_color: "ffffff",
 // theme_color: "#000000",
+//
+// mobile_web_app_capable: "yes",
+// apple_mobile_web_app_status_bar_style: "black-translucent",
+//
 export default defineConfig({
   plugins: [
     react(),
@@ -13,9 +17,8 @@ export default defineConfig({
         name: "Golf Games",
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
+        theme_color: "#000000",
         display: "standalone",
-        mobile_web_app_capable: "yes",
-        apple_mobile_web_app_status_bar_style: "black-translucent",
         icons: [
           {
             src: "favicons/apple-touch-icon.png",
