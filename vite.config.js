@@ -15,8 +15,10 @@ import { VitePWA } from "vite-plugin-pwa";
 //  So, I removed the theme_color completely to see if the status bar
 //  settings in index.html might actually take effect.
 //
-//  If it doesn't work, I will try adding the settings to this file.
-//  for now, I will work on other things.
+//  the status bar went from black to white.  I don't understand, as the
+//  default is supposed to be black.
+//
+//  I added the apple_mobile_web... and pushed at 11:33 Saturday.
 //
 export default defineConfig({
   plugins: [
@@ -28,6 +30,8 @@ export default defineConfig({
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
         display: "standalone",
+        mobile_web_app_capable: "yes",
+        apple_mobile_web_app_status_bar_style: "black-translucent",
         icons: [
           {
             src: "favicons/apple-touch-icon.png",
