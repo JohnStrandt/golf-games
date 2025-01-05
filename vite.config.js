@@ -4,22 +4,6 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // background_color: "ffffff",
 // theme_color: "#000000",
-//
-// mobile_web_app_capable: "yes",
-// apple_mobile_web_app_status_bar_style: "black-translucent",
-//
-//  It took several hours for changes to this file to take effect.
-//  I changed theme_color to black (#000000), didn't update on my
-//  phone until the next day after pushing to netlify.
-//
-//  So, I removed the theme_color completely to see if the status bar
-//  settings in index.html might actually take effect.
-//
-//  the status bar went from black to white.  I don't understand, as the
-//  default is supposed to be black.
-//
-//  I added the apple_mobile_web... and pushed at 11:33 Saturday.
-//
 export default defineConfig({
   plugins: [
     react(),
@@ -30,8 +14,10 @@ export default defineConfig({
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
         display: "standalone",
+        apple_mobile_web_app_capable: "yes",
         mobile_web_app_capable: "yes",
         apple_mobile_web_app_status_bar_style: "black-translucent",
+        // theme_color: "#000000",
         icons: [
           {
             src: "favicons/apple-touch-icon.png",

@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 
-const NavButton = ({ label }) => {
+const NavButton = ({ action, label }) => {
   return (
-    <button className="w-1/3 h-12 bg-base border border-primary text-primary rounded-lg">
+    <button
+      onClick={action}
+      className="w-1/3 h-12 bg-base border border-primary text-primary rounded-lg"
+    >
       {label}
     </button>
   );
