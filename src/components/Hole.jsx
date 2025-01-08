@@ -20,7 +20,7 @@ const Hole = () => {
         <PlayerScore name={players[3].name} score={par} isWolf={false} />
       </div>
       <div className="flex w-full justify-center">
-        <Button label="score" />
+        <Button label="score" action={() => console.log("score")} />
       </div>
       <div className="flex justify-around">
         <NavButton action={() => console.log("prev")} label="prev" />

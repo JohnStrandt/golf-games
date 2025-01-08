@@ -1,9 +1,20 @@
-/* eslint-disable react/prop-types */
 import { use } from "react";
 import { MatchContext } from "../components/MatchContext";
 
-const WolfSetup = ({ setReady }) => {
+const WolfSetup = () => {
   const { matchState, setMatchState } = use(MatchContext);
+
+  const handleNamesUpdated = () => {
+    updateNames();
+    togglePlayersSet();
+  };
+
+  const togglePlayersSet = () => {
+    setMatchState((prevData) => ({
+      ...prevData,
+      playersSet: true,
+    }));
+  };
 
   const updateName = (playerId, newName) => {
     setMatchState((prevData) => ({
@@ -19,9 +30,8 @@ const WolfSetup = ({ setReady }) => {
     updateName(2, "Barney");
     updateName(3, "Wilma");
     updateName(4, "Betty");
-    setReady(true);
   };
-  // hello
+
   return (
     <section className="flex flex-col p-2 h-[calc(100vh-80px)] justify-around bg-background">
       <div className="h-full text-primary text-center flex flex-col justify-around">
@@ -37,7 +47,7 @@ const WolfSetup = ({ setReady }) => {
         </ul>
         <button
           className="bg-base w-44 py-1 rounded-md mx-auto"
-          onClick={updateNames}
+          onClick={handleNamesUpdated}
         >
           Change Names
         </button>

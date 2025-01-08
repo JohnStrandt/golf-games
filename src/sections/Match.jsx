@@ -1,11 +1,15 @@
 import { Hole, WolfSetup } from "../components";
-import { useState } from "react";
+import { use } from "react";
+
+import { MatchContext } from "../components/MatchContext";
+
 const Match = () => {
-  let [ready, setReady] = useState(false);
+  const { matchState } = use(MatchContext);
+  let ready = matchState.playersSet;
 
   return (
     <section className="flex flex-col p-2 h-[calc(100vh-80px)] justify-around bg-background">
-      {!ready && <WolfSetup setReady={setReady} />}
+      {!ready && <WolfSetup />}
       {ready && <Hole />}
     </section>
   );

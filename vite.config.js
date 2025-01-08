@@ -12,8 +12,8 @@ export default defineConfig({
         short_name: "Wolf",
         description: "A collection of popular golf wager games",
         display: "standalone",
-        background_color: "ffffff",
-        theme_color: "#000000",
+        background_color: "#000000",
+        theme_color: "#ffffff",
         icons: [
           {
             src: "favicons/apple-touch-icon.png",

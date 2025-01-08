@@ -10,7 +10,7 @@ const MatchProvider = ({ children }) => {
       {
         id: 1,
         name: "Fonzi",
-        roles: Array(18).fill("sheep"), // wolf, partner, or sheep
+        roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
@@ -42,6 +42,7 @@ const MatchProvider = ({ children }) => {
     ],
     currentHole: 0,
     wolfIndex: 0,
+    playersSet: false,
   });
 
   const contextValue = { matchState, setMatchState };
