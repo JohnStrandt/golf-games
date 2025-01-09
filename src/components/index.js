@@ -2,7 +2,6 @@ import PlayerScore from "./PlayerScore";
 import Button from "./Button";
 import NavButton from "./NavButton";
 import Input from "./Input";
-import Setup from "./Setup";
 import WolfIcon from "./WolfIcon";
 import Hole from "./Hole";
 import WolfSetup from "./WolfSetup";
@@ -14,7 +13,6 @@ export {
   Button,
   NavButton,
   Input,
-  Setup,
   WolfIcon,
   Hole,
   WolfSetup,
