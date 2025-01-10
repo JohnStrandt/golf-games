@@ -3,9 +3,13 @@ import Button from "./Button";
 import NavButton from "./NavButton";
 import Input from "./Input";
 import WolfIcon from "./WolfIcon";
-import Hole from "./Hole";
-import WolfSetup from "./WolfSetup";
+import ScoreHole from "./ScoreHole";
+import SetPlayers from "./SetPlayers";
 import { MatchContext } from "./MatchContext";
+import SetTeams from "./SetTeams";
+import ShowScores from "./ShowScores";
+// import AddInputTutorial from "./AddInputTutorial";
+
 // curlies when you dont give a default export
 
 export {
@@ -14,7 +18,9 @@ export {
   NavButton,
   Input,
   WolfIcon,
-  Hole,
-  WolfSetup,
+  ScoreHole,
+  SetPlayers,
   MatchContext,
+  SetTeams,
+  ShowScores,
 };

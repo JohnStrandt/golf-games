@@ -2,7 +2,7 @@ import { use } from "react";
 import { PlayerScore, Button, NavButton } from "./";
 import { MatchContext } from "../components/MatchContext";
 
-const Hole = () => {
+const ScoreHole = () => {
   const { matchState } = use(MatchContext);
   let players = matchState.players;
   let par = 4;
@@ -30,4 +30,4 @@ const Hole = () => {
   );
 };
 
-export default Hole;
+export default ScoreHole;

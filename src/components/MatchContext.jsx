@@ -8,32 +8,32 @@ const MatchProvider = ({ children }) => {
   const [matchState, setMatchState] = useState({
     players: [
       {
-        id: 1,
-        name: "Fonzi",
+        id: "player1",
+        name: "",
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
       },
       {
-        id: 2,
-        name: "Richie",
+        id: "player2",
+        name: "",
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
       },
       {
-        id: 3,
-        name: "Potsy",
+        id: "player3",
+        name: "",
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
       },
       {
-        id: 4,
-        name: "Ralph",
+        id: "player4",
+        name: "",
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
@@ -42,7 +42,7 @@ const MatchProvider = ({ children }) => {
     ],
     currentHole: 0,
     wolfIndex: 0,
-    playersSet: false,
+    playState: "setup",
   });
 
   const contextValue = { matchState, setMatchState };

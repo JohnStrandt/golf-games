@@ -1,17 +1,20 @@
-import { Hole, WolfSetup } from "../components";
-import { use } from "react";
+import { SetPlayers, SetTeams, ScoreHole, ShowScores } from "../components";
 
+import { use } from "react";
 import { MatchContext } from "../components/MatchContext";
 
 const Match = () => {
   const { matchState } = use(MatchContext);
-  let ready = matchState.playersSet;
-  // update to state machine variable?
+  let state = matchState.playState;
+
+  let four = 4;
 
   return (
     <section className="flex flex-col p-2 h-[calc(100vh-80px)] justify-around bg-background">
-      {!ready && <WolfSetup />}
-      {ready && <Hole />}
+      {state == "setup" && <SetPlayers count={four} />}
+      {state == "teams" && <SetTeams />}
+      {state == "score" && <ScoreHole />}
+      {state == "leaderboard" && <ShowScores />}
     </section>
   );
 };
