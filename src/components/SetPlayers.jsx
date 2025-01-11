@@ -58,7 +58,7 @@ const SetPlayers = ({ count }) => {
       </div>
       <form
         onSubmit={handleSubmit(submitPlayerNames)}
-        className="flex flex-col h-3/5 w-full gap-y-5 justify-around"
+        className="flex flex-col h-3/5 w-full justify-around"
       >
         {[...Array(count)].map((_, index) => (
           <div key={index} className="w-3/4 mx-auto">
