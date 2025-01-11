@@ -13,7 +13,7 @@ export default defineConfig({
         description: "A collection of popular golf wager games",
         display: "standalone",
         background_color: "#000000",
-        theme_color: "#ffffff",
+        theme_color: "#000000",
         icons: [
           {
             src: "favicons/apple-touch-icon.png",
