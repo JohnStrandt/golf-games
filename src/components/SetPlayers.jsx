@@ -53,7 +53,7 @@ const SetPlayers = ({ count }) => {
         <span className="text-3xl text-bold text-accent">
           Enter Player Names
         </span>
-        <p>in teeing order when appropriate</p>
+        <p>...in teeing order when appropriate</p>
         <p>(check the rules)</p>
       </div>
       <form
@@ -72,7 +72,7 @@ const SetPlayers = ({ count }) => {
               })}
             />
             {errors[`player${index + 1}`] && (
-              <p className="text-accent text-center">
+              <p className="text-alert text-center">
                 {errors[`player${index + 1}`].message}
               </p>
             )}

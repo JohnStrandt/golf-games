@@ -13,6 +13,7 @@ export default {
         primary: "rgba(var(--primary))",
         accent: "rgba(var(--accent))",
         secondary: "rgba(var(--secondary))",
+        alert: "rgba(var(--alert))",
       },
     },
   },

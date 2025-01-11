@@ -17,6 +17,7 @@ body {
   --base: 211, 226, 239;
   --primary: 9, 19, 32;
   --accent: 23, 56, 90;
+  --alert: 255, 118, 118;
 
   background: rgba(var(--background));
 }
@@ -26,6 +27,7 @@ body {
   --base: 24, 24, 37; /* navigation */
   --primary: 205, 214, 244; /* text */
   --accent: 56, 247, 20; /* neon green */
+  --alert: 255, 118, 118; /* push-up orange */
 
   background: rgba(var(--background));
 }
