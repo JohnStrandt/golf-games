@@ -63,7 +63,7 @@ const SetPlayers = ({ count }) => {
         {[...Array(count)].map((_, index) => (
           <div key={index} className="w-3/4 mx-auto">
             <input
-              className="h-14 bw-full border border-primary rounded-xl bg-base px-10 text-lg"
+              className="h-14 bw-full border border-primary focus:border-accent outline-none rounded-xl bg-base px-10 text-lg"
               placeholder={`player ${index + 1}`}
               {...register(`player${index + 1}`, {
                 required: "Name required",
