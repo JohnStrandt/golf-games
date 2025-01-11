@@ -3,12 +3,12 @@
 import { useForm } from "react-hook-form";
 import { use } from "react";
 import { MatchContext } from "../components/MatchContext";
+import { AccentButton } from "./";
 
 const SetPlayers = ({ count }) => {
   const { setMatchState } = use(MatchContext);
 
   const nextState = (state) => {
-    console.log(state);
     setMatchState((prevData) => ({
       ...prevData,
       playState: state,
@@ -48,36 +48,41 @@ const SetPlayers = ({ count }) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(submitPlayerNames)}
-      className="flex flex-col gap-y-2 text-gray-800 mx-auto"
-    >
-      {[...Array(count)].map((_, index) => (
-        <div key={index}>
-          <input
-            className="px-4 py-2 rounded"
-            placeholder={`player ${index + 1}`}
-            {...register(`player${index + 1}`, {
-              required: "Name required",
-              maxLength: { value: 15, message: "Max 15 letters per name" },
-              validate: validateUnique,
-            })}
-          />
-          {errors[`player${index + 1}`] && (
-            <p className="text-red-500">
-              {errors[`player${index + 1}`].message}
-            </p>
-          )}
-        </div>
-      ))}
-
-      <button
-        type="submit"
-        className="bg-blue-500 disabled:bg-gray-500 py-2 rounded"
+    <div className="flex flex-col h-full justify-around text-primary">
+      <div className="flex flex-col w-full h-24 justify-between text-center">
+        <span className="text-3xl text-bold text-accent">
+          Enter Player Names
+        </span>
+        <p>in teeing order when appropriate</p>
+        <p>(check the rules)</p>
+      </div>
+      <form
+        onSubmit={handleSubmit(submitPlayerNames)}
+        className="flex flex-col h-3/5 w-full gap-y-5 justify-around"
       >
-        Add Players
-      </button>
-    </form>
+        {[...Array(count)].map((_, index) => (
+          <div key={index} className="w-3/4 mx-auto">
+            <input
+              className="h-14 bw-full border border-primary rounded-xl bg-base px-10 text-lg"
+              placeholder={`player ${index + 1}`}
+              {...register(`player${index + 1}`, {
+                required: "Name required",
+                maxLength: { value: 12, message: "Max 12 letters per name" },
+                validate: validateUnique,
+              })}
+            />
+            {errors[`player${index + 1}`] && (
+              <p className="text-accent text-center">
+                {errors[`player${index + 1}`].message}
+              </p>
+            )}
+          </div>
+        ))}
+        <div className="flex w-full h-1/5 items-center justify-center">
+          <AccentButton label="Update Players" type="submit" />
+        </div>
+      </form>
+    </div>
   );
 };
 

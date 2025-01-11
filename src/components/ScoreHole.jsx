@@ -1,5 +1,5 @@
 import { use } from "react";
-import { PlayerScore, Button, NavButton } from "./";
+import { PlayerScore, WideButton, NavButton } from "./";
 import { MatchContext } from "../components/MatchContext";
 
 const ScoreHole = () => {
@@ -20,7 +20,7 @@ const ScoreHole = () => {
         <PlayerScore name={players[3].name} score={par} isWolf={false} />
       </div>
       <div className="flex w-full justify-center">
-        <Button label="score" action={() => console.log("score")} />
+        <WideButton label="score" action={() => console.log("score")} />
       </div>
       <div className="flex justify-around">
         <NavButton action={() => console.log("prev")} label="prev" />
