@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { createContext, useState } from "react";
+import { roles } from "./";
 
 const MatchContext = createContext();
 
@@ -10,7 +11,7 @@ const MatchProvider = ({ children }) => {
       {
         id: "player1",
         name: "",
-        roles: Array(18).fill("sheep"),
+        roles: roles.player1,
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
@@ -18,7 +19,7 @@ const MatchProvider = ({ children }) => {
       {
         id: "player2",
         name: "",
-        roles: Array(18).fill("sheep"),
+        roles: roles.player2,
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
@@ -26,7 +27,7 @@ const MatchProvider = ({ children }) => {
       {
         id: "player3",
         name: "",
-        roles: Array(18).fill("sheep"),
+        roles: roles.player3,
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
@@ -34,13 +35,13 @@ const MatchProvider = ({ children }) => {
       {
         id: "player4",
         name: "",
-        roles: Array(18).fill("sheep"),
+        roles: roles.player4,
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
         total: 0,
       },
     ],
-    currentHole: 0,
+    currentHole: 1,
     wolfIndex: 0,
     playState: "setup",
   });

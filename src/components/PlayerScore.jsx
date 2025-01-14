@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import WolfIcon from "./WolfIcon";

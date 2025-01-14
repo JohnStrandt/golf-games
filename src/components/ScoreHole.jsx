@@ -1,6 +1,6 @@
 import { use } from "react";
 import { PlayerScore, WideButton, NavButton } from "./";
-import { MatchContext } from "../components/MatchContext";
+import { MatchContext } from "../data";
 
 const ScoreHole = () => {
   const { matchState } = use(MatchContext);

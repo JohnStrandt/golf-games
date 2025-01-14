@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import { useForm } from "react-hook-form";
 import { use } from "react";
-import { MatchContext } from "../components/MatchContext";
+import { useForm } from "react-hook-form";
+import { MatchContext } from "../data";
 import { AccentButton } from "./";
 
 const SetPlayers = ({ count }) => {
@@ -35,9 +35,10 @@ const SetPlayers = ({ count }) => {
       updateName(key, data[key]);
     });
     reset();
-    nextState("score"); // change back to setTeams
+    nextState("teams");
   };
 
+  // TODO: Player ID here only 2x
   const updateName = (playerId, newName) => {
     setMatchState((prevData) => ({
       ...prevData,
@@ -49,11 +50,11 @@ const SetPlayers = ({ count }) => {
 
   return (
     <div className="flex flex-col h-full justify-around text-primary">
-      <div className="flex flex-col w-full h-24 justify-between text-center">
-        <span className="text-3xl text-bold text-accent">
+      <div className="flex flex-col w-full h-24 mt-8 justify-between text-center">
+        <span className="text-4xl text-bold text-accent">
           Enter Player Names
         </span>
-        <p>...in teeing order when appropriate</p>
+        <p>in teeing order when appropriate</p>
         <p>(check the rules)</p>
       </div>
       <form
@@ -63,7 +64,7 @@ const SetPlayers = ({ count }) => {
         {[...Array(count)].map((_, index) => (
           <div key={index} className="w-3/4 mx-auto">
             <input
-              className="h-14 bw-full border border-primary focus:border-accent outline-none rounded-xl bg-base px-10 text-lg"
+              className="h-14 flex w-full items-center border border-primary focus:border-accent outline-none rounded-xl bg-base px-10 text-lg"
               placeholder={`player ${index + 1}`}
               {...register(`player${index + 1}`, {
                 required: "Name required",
