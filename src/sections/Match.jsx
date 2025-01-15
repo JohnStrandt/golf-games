@@ -1,7 +1,7 @@
 import { SetPlayers, SetTeams, ScoreHole, ShowScores } from "../components";
 
 import { use } from "react";
-import { MatchContext } from "../data";
+import { MatchContext } from "../state";
 
 const Match = () => {
   const { matchState } = use(MatchContext);

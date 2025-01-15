@@ -1,24 +1,68 @@
-import { use } from "react";
-import { PlayerScore, WideButton, NavButton } from "./";
-import { MatchContext } from "../data";
+import { use, useState, useEffect } from "react";
+import { HoleNumber, PlayerScore, WideButton, NavButton } from "./";
+import { MatchContext } from "../state";
 
 const ScoreHole = () => {
   const { matchState } = use(MatchContext);
-  let players = matchState.players;
+  let holeIndex = matchState.currentHole - 1;
+  const [pack, setPack] = useState([]);
+  const [sheep, setSheep] = useState([]);
+
   let par = 4;
-  let hole = 1;
+
+  useEffect(() => {
+    let temp = [];
+    let tPack = [];
+    let tSheep = [];
+
+    for (let i = 0; i <= 3; i++) {
+      temp = matchState.players[i];
+      switch (temp.roles[holeIndex]) {
+        case "wolf":
+          tPack[0] = temp;
+          break;
+        case "lonewolf":
+          tPack[0] = temp;
+          break;
+        case "blindwolf":
+          tPack[0] = temp;
+          break;
+        case "partner":
+          tPack[1] = temp;
+          break;
+        default:
+          tSheep.push(temp);
+          break;
+      }
+    }
+    setPack(tPack);
+    setSheep(tSheep);
+    // setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /*
+
+   TODO: I need a teamCard for scoring teams 
+
+  */
 
   return (
     <div className="flex flex-col h-full justify-around">
-      <div className="flex h-24 w-24 items-center justify-center rounded-full mx-auto bg-accent text-background">
-        <span className=" text-5xl font-medium">{hole}</span>
+      <HoleNumber hole={matchState.currentHole} />
+      <div>
+        {pack.map((player) => (
+          <p key={player.id} className="text-red-700">
+            {player.name}
+          </p>
+        ))}
+        {sheep.map((player) => (
+          <p key={player.id} className="text-blue-700">
+            {player.name}
+          </p>
+        ))}
       </div>
-      <div className="flex flex-col gap-4">
-        <PlayerScore name={players[0].name} score={par} isWolf={true} />
-        <PlayerScore name={players[1].name} score={par} isWolf={false} />
-        <PlayerScore name={players[2].name} score={par} isWolf={false} />
-        <PlayerScore name={players[3].name} score={par} isWolf={false} />
-      </div>
+
       <div className="flex w-full justify-center">
         <WideButton label="score" action={() => console.log("score")} />
       </div>

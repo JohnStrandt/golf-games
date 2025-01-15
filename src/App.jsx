@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Nav, Home, Match, Rules, Score } from "./sections";
 import "./index.css";
-import { MatchProvider } from "./data/MatchContext";
+import { MatchProvider } from "./state/MatchContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);

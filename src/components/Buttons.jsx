@@ -22,11 +22,12 @@ export const NavButton = ({ label, action }) => {
   );
 };
 
-export const AccentButton = ({ label, action }) => {
+export const AccentButton = ({ label, action, disabled }) => {
   return (
     <button
-      className="w-3/5 h-12 bg-base outline-none border border-accent text-primary text-lg rounded-full"
+      className="w-3/5 h-14 bg-base outline-none border border-primary text-accent text-lg rounded-full"
       onClick={action}
+      disabled={disabled}
     >
       {label}
     </button>

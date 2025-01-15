@@ -1,6 +1,6 @@
 import { use, useState, useEffect } from "react";
-import { MatchContext } from "../data";
-import { HoleNumber, WideButton, CustomRadioButton } from "./";
+import { MatchContext } from "../state";
+import { HoleNumber, AccentButton, CustomRadioButton } from "./";
 
 // this component is only used for Wolf - might wanna rename
 const SetTeams = () => {
@@ -10,6 +10,13 @@ const SetTeams = () => {
   const [wolf, setWolf] = useState(null);
   const [sheep, setSheep] = useState([]);
   const [wolfChoice, setWolfChoice] = useState(null);
+
+  const nextState = (state) => {
+    setMatchState((prevData) => ({
+      ...prevData,
+      playState: state,
+    }));
+  };
 
   useEffect(() => {
     setWolf(matchState.players[matchState.wolfIndex]);
@@ -26,16 +33,6 @@ const SetTeams = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /*
-
-   TODO: onClick for lone and blind will have a function that updates Wolf role 
-
-   TODO: onClick for sheep will update their role as partner using their IDs
-
-   TODO: Sheep and Pack arrays created in scoring page
-
-  */
-
   const handleChange = (event) => {
     setWolfChoice(event.target.value);
   };
@@ -43,41 +40,16 @@ const SetTeams = () => {
   const setRoles = () => {
     if (wolfChoice == "lonewolf" || wolfChoice == "blindwolf") {
       updateRole(wolf.id, wolfChoice);
-      console.log(wolf.roles);
     } else {
       updateRole(wolfChoice, "partner");
-      displaySheepRoles(wolfChoice);
     }
-  };
-
-  // delete this later
-  const displaySheepRoles = (id) => {
-    let index;
-
-    switch (id) {
-      case "player1":
-        index = 0;
-        break;
-      case "player2":
-        index = 1;
-        break;
-      case "player3":
-        index = 2;
-        break;
-      case "player4":
-        index = 3;
-        break;
-      default:
-        break;
-    }
-    console.log(matchState.players[index].roles);
+    console.log(`Choice: ${wolfChoice}`);
+    console.log(matchState.players);
+    nextState("score");
   };
 
   /*
        TODO: PlayerId only here 2x
-
-       It crashed when I changed ids to == index
-       I must have missed something...
  */
 
   const updateRole = (playerId, role) => {
@@ -148,7 +120,11 @@ const SetTeams = () => {
         </div>
 
         <div className="flex w-full justify-center">
-          <WideButton label="Next" action={setRoles} />
+          <AccentButton
+            label="Next"
+            action={setRoles}
+            disabled={wolfChoice == null}
+          />
         </div>
       </div>
     )

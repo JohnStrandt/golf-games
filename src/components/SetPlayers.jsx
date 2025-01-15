@@ -2,7 +2,7 @@
 
 import { use } from "react";
 import { useForm } from "react-hook-form";
-import { MatchContext } from "../data";
+import { MatchContext } from "../state";
 import { AccentButton } from "./";
 
 const SetPlayers = ({ count }) => {
@@ -62,9 +62,9 @@ const SetPlayers = ({ count }) => {
         className="flex flex-col h-3/5 w-full justify-around"
       >
         {[...Array(count)].map((_, index) => (
-          <div key={index} className="w-3/4 mx-auto">
+          <div key={index} className="w-3/4 h-1/5 mx-auto">
             <input
-              className="h-14 flex w-full items-center border border-primary focus:border-accent outline-none rounded-xl bg-base px-10 text-lg"
+              className="h-14 w-full border border-primary focus:border-accent outline-none rounded-xl bg-base px-10 text-lg"
               placeholder={`player ${index + 1}`}
               {...register(`player${index + 1}`, {
                 required: "Name required",
