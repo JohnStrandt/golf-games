@@ -22,6 +22,11 @@ const SetPlayers = ({ count }) => {
     reset,
   } = useForm();
 
+  /*
+      NOTE: Make them enter at least one LETTER 
+      cant enter just a space, extra spaces trimmed...
+ */
+
   const validateUnique = (value, allValues) => {
     const values = Object.values(allValues);
     return (
@@ -38,7 +43,6 @@ const SetPlayers = ({ count }) => {
     nextState("teams");
   };
 
-  // TODO: Player ID here only 2x
   const updateName = (playerId, newName) => {
     setMatchState((prevData) => ({
       ...prevData,

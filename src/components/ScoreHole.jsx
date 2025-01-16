@@ -1,5 +1,5 @@
 import { use, useState, useEffect } from "react";
-import { HoleNumber, PlayerScore, WideButton, NavButton } from "./";
+import { HoleNumber, WideButton, NavButton, ScoringCard } from "./";
 import { MatchContext } from "../state";
 
 const ScoreHole = () => {
@@ -7,8 +7,6 @@ const ScoreHole = () => {
   let holeIndex = matchState.currentHole - 1;
   const [pack, setPack] = useState([]);
   const [sheep, setSheep] = useState([]);
-
-  let par = 4;
 
   useEffect(() => {
     let temp = [];
@@ -50,26 +48,27 @@ const ScoreHole = () => {
   return (
     <div className="flex flex-col h-full justify-around">
       <HoleNumber hole={matchState.currentHole} />
-      <div>
-        {pack.map((player) => (
-          <p key={player.id} className="text-red-700">
-            {player.name}
-          </p>
-        ))}
-        {sheep.map((player) => (
-          <p key={player.id} className="text-blue-700">
-            {player.name}
-          </p>
-        ))}
+
+      <div className="flex flex-col h-2/3 min-h-fit gap-3 justify-around">
+        <div className="flex flex-col gap-1">
+          {pack.map((player) => (
+            <ScoringCard key={player.id} name={player.name} score={4} />
+          ))}
+        </div>
+        <div className="flex flex-col gap-1">
+          {sheep.map((player) => (
+            <ScoringCard key={player.id} name={player.name} score={4} />
+          ))}
+        </div>
+        <div className="flex w-full justify-center">
+          <WideButton label="score" action={() => console.log("score")} />
+        </div>
       </div>
 
-      <div className="flex w-full justify-center">
-        <WideButton label="score" action={() => console.log("score")} />
-      </div>
-      <div className="flex justify-around">
-        <NavButton action={() => console.log("prev")} label="prev" />
-        <NavButton action={() => console.log("next")} label="next" />
-      </div>
+      {/* <div className="flex justify-around"> */}
+      {/*   <NavButton action={() => console.log("prev")} label="prev" /> */}
+      {/*   <NavButton action={() => console.log("next")} label="next" /> */}
+      {/* </div> */}
     </div>
   );
 };

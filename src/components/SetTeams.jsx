@@ -37,20 +37,15 @@ const SetTeams = () => {
     setWolfChoice(event.target.value);
   };
 
+  // partner choice returns a player id, lone wolf choices return a new role
   const setRoles = () => {
     if (wolfChoice == "lonewolf" || wolfChoice == "blindwolf") {
       updateRole(wolf.id, wolfChoice);
     } else {
       updateRole(wolfChoice, "partner");
     }
-    console.log(`Choice: ${wolfChoice}`);
-    console.log(matchState.players);
     nextState("score");
   };
-
-  /*
-       TODO: PlayerId only here 2x
- */
 
   const updateRole = (playerId, role) => {
     let holeIndex = matchState.currentHole - 1;
@@ -130,7 +125,5 @@ const SetTeams = () => {
     )
   );
 };
-
-//    TODO: Disable Next button while choice is still null
 
 export default SetTeams;
