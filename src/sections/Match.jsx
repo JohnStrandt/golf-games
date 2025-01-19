@@ -7,11 +7,11 @@ const Match = () => {
   const { matchState } = use(MatchContext);
   let state = matchState.playState;
 
-  let four = 4;
+  let playerCount = 4;
 
   return (
     <section className="flex flex-col p-2 h-[calc(100vh-80px)] justify-around bg-background">
-      {state == "setup" && <SetPlayers count={four} />}
+      {state == "setup" && <SetPlayers count={playerCount} />}
       {state == "teams" && <SetTeams />}
       {state == "score" && <ScoreHole />}
       {state == "leaderboard" && <ShowScores />}

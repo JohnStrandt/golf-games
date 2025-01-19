@@ -72,7 +72,7 @@ const SetPlayers = ({ count }) => {
               placeholder={`player ${index + 1}`}
               {...register(`player${index + 1}`, {
                 required: "Name required",
-                maxLength: { value: 12, message: "Max 12 letters per name" },
+                maxLength: { value: 15, message: "Max 15 letters per name" },
                 validate: validateUnique,
               })}
             />
