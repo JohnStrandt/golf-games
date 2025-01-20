@@ -2,7 +2,7 @@
 
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-const ScoringCard = ({ name, scoreKey, scoreValue, updateScores }) => {
+const ScoreHoleCard = ({ name, scoreKey, scoreValue, updateScores }) => {
   const handleScores = (value) => {
     updateScores(scoreKey, value);
   };
@@ -31,4 +31,4 @@ const ScoringCard = ({ name, scoreKey, scoreValue, updateScores }) => {
   );
 };
 
-export default ScoringCard;
+export default ScoreHoleCard;

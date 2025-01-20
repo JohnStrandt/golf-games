@@ -1,5 +1,5 @@
 import { use, useState, useEffect } from "react";
-import { HoleNumber, WideButton, ScoringCard } from "./";
+import { HoleNumber, WideButton, ScoreHoleCard } from "./";
 import { MatchContext } from "../state";
 
 const ScoreHole = () => {
@@ -154,7 +154,7 @@ const ScoreHole = () => {
       <div className="flex flex-col h-2/3 gap-3 justify-around">
         <div className="flex flex-col gap-1">
           {pack.map((player) => (
-            <ScoringCard
+            <ScoreHoleCard
               key={player.id}
               name={player.name}
               scoreKey={player.id}
@@ -165,7 +165,7 @@ const ScoreHole = () => {
         </div>
         <div className="flex flex-col gap-1">
           {sheep.map((player) => (
-            <ScoringCard
+            <ScoreHoleCard
               key={player.id}
               name={player.name}
               scoreKey={player.id}

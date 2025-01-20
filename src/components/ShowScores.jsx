@@ -1,9 +1,9 @@
 import { use, useState, useEffect } from "react";
-import { HoleNumber, WideButton } from "./";
+import { HoleNumber, ShowScoreCard, WideButton } from "./";
 import { MatchContext } from "../state";
 
 const ShowScores = () => {
-  const { matchState } = use(MatchContext);
+  const { matchState, setMatchState } = use(MatchContext);
   const [pack, setPack] = useState([]);
   const [sheep, setSheep] = useState([]);
   let hole = matchState.currentHole - 1;
@@ -12,7 +12,6 @@ const ShowScores = () => {
     let tempPack = [];
     let tempSheep = [];
 
-    // set wolf by index, may be lone or blind
     tempPack[0] = matchState.players[matchState.wolfIndex];
 
     matchState.players.forEach((player) => {
@@ -31,50 +30,61 @@ const ShowScores = () => {
     });
   }, [matchState, hole]);
 
-  /*
-      NOTE:    Work zone
-               scoreTotal
-               pointTotal
-*/
+  //
+  //  NOTE:   Player in last place is wolf on 17 & 18
+  //          same guy can be wolf on both holes (possibly 16, 17, & 18!)
+  //
+  const getLastPlaceIndex = () => {
+    let players = matchState.players;
+
+    let lowest = players[0].pointTotal;
+    let lowIndex = 0;
+    for (let i = 1; i < 4; i++) {
+      if (players[i].pointTotal < lowest) {
+        lowest = players[i].pointTotal;
+        lowIndex = i;
+      }
+    }
+    return lowIndex;
+  };
+
+  const handleNextHoleButton = () => {
+    if (matchState.currentHole < 18) {
+      let nextHole = matchState.currentHole + 1;
+      let nextState = "teams";
+      let nextWolfIndex;
+
+      // update who is the next wolf:
+      if (matchState.currentHole >= 16) {
+        nextWolfIndex = getLastPlaceIndex();
+      } else {
+        nextWolfIndex = (matchState.wolfIndex + 1) % 4;
+      }
+
+      setMatchState((prevData) => ({
+        ...prevData,
+        currentHole: nextHole,
+        wolfIndex: nextWolfIndex,
+        playState: nextState,
+      }));
+    } else {
+      console.log("Match Over!");
+
+      // NOTE:    update to go to final page,
+      //          Score card?  LeaderBoard?
+      //          also update button label
+    }
+  };
+
   return (
     <div className="flex flex-col h-full justify-around">
       <HoleNumber hole={matchState.currentHole} />
 
-      <div className="flex flex-col w-full py-4 lpy-4 bg-base text-primary">
-        {pack.map((player) => (
-          <div key={player.id} className="flex">
-            <div className="flex w-2/5 justify-center">{player.name}</div>
-            <div className="flex w-1/5 justify-center">
-              {player.scores[hole]} strokes
-            </div>
-            <div className="flex w-1/5 justify-center">
-              {player.points[hole]} points
-            </div>
-            <div className="flex w-1/5 justify-center">
-              total {player.pointTotal}
-            </div>
-          </div>
-        ))}
-      </div>
+      <ShowScoreCard team={pack} hole={hole} />
+      <ShowScoreCard team={sheep} hole={hole} />
 
-      <div className="flex flex-col w-full py-4 bg-base text-primary">
-        {sheep.map((player) => (
-          <div key={player.id} className="flex">
-            <div className="flex w-1/2 justify-center">{player.name}</div>
-            <div className="flex w-1/4 justify-center">
-              {player.scores[hole]} strokes
-            </div>
-            <div className="flex w-1/4 justify-center">
-              {player.points[hole]} points
-            </div>
-            <div className="flex w-1/5 justify-center">
-              total {player.pointTotal}
-            </div>
-          </div>
-        ))}
-      </div>
       <div className="flex w-full justify-center">
-        <WideButton label="Next Hole" action={() => console.log("click")} />
+        <WideButton label="Next Hole" action={handleNextHoleButton} />
       </div>
     </div>
   );

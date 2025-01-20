@@ -17,8 +17,10 @@ const SetTeams = () => {
   };
 
   useEffect(() => {
+    // wolf
     setWolf(matchState.players[matchState.wolfIndex]);
 
+    // index of next player (with wrap-around logic)
     let index = (matchState.wolfIndex + 1) % 4;
     let temp = [];
     for (let i = 0; i < 3; i++) {
@@ -44,6 +46,10 @@ const SetTeams = () => {
     nextState("score");
   };
 
+  /*
+     NOTE:  could clean up updateRole a bit 
+ 
+ */
   const updateRole = (playerId, role) => {
     let holeIndex = matchState.currentHole - 1;
 

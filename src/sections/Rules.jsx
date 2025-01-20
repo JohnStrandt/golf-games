@@ -1,6 +1,3 @@
-//
-//  TODO:  Simplify the Order of Play section
-//
 const Rules = () => {
   return (
     <section className="flex flex-col p-2 h-[calc(100vh-80px)] overflow-auto bg-background text-primary">
@@ -10,20 +7,17 @@ const Rules = () => {
         <h2 className="text-lg font-semibold mb-2">Order of Play</h2>
         <p className="mb-2">
           You first have to determine the teeing order (your choice on the
-          method). This order doesn’t change. Player-2 always follows Player-1,
-          and 3 always follows 2, etc...
+          method). This order doesn’t change. The role of wolf rotates on each
+          hole, and the wolf always has the honors.
           <br />
-          The role of wolf rotates on each consecutive hole, and the wolf always
-          has the honors. So if Player-1 is the wolf on the first hole, 2 hits
-          second, 3 hits third, etc... On the next tee, Player-2 is now the wolf
-          and hits first, 3 hits second, 4 third, and so on...
           <br />
-          However, on the 17th and 18th holes, the players that are behind in
-          points are allowed to be Wolf. Always maintaining the same hitting
-          order.
+          <span className="font-bold">Holes 17 and 18: </span>Everyone has been
+          wolf four times and there are two holes left. The players that are
+          behind in points become the wolf.
           <br />
-          In the app, the players are always listed in the correct teeing order
-          at the start of each hole.
+          <br />
+          The app always displays the correct teeing order when players are on
+          the tee box and the wolf is choosing on partner.
         </p>
       </div>
       <div>
@@ -65,19 +59,24 @@ const Rules = () => {
                 Lowest score on each side is the one used.
               </li>
               <li>
+                <span className="text-lg">Ties</span>
+                <br />
+                Zero points for ties.
+              </li>
+              <li>
                 <span className="text-lg">Partners</span>
                 <br />
-                Winning side shares two points taken from the losing side.
+                Winning side shares two points.
               </li>
               <li>
                 <span className="text-lg">Lone Wolf</span>
                 <br />
-                Winning side takes six points from losing the side.{" "}
+                Winning side shares six points.
               </li>
               <li>
                 <span className="text-lg">Blind Wolf</span>
                 <br />
-                Winning side takes nine points from the losing side.{" "}
+                Winning side shares nine points.
               </li>
             </ul>
           </div>

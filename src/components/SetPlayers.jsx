@@ -8,13 +8,6 @@ import { AccentButton } from "./";
 const SetPlayers = ({ count }) => {
   const { setMatchState } = use(MatchContext);
 
-  const nextState = (state) => {
-    setMatchState((prevData) => ({
-      ...prevData,
-      playState: state,
-    }));
-  };
-
   const {
     register,
     handleSubmit,
@@ -49,6 +42,13 @@ const SetPlayers = ({ count }) => {
       players: prevData.players.map((player) =>
         player.id === playerId ? { ...player, name: newName } : player,
       ),
+    }));
+  };
+
+  const nextState = (state) => {
+    setMatchState((prevData) => ({
+      ...prevData,
+      playState: state,
     }));
   };
 
