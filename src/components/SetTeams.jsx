@@ -9,11 +9,12 @@ const SetTeams = () => {
   const [sheep, setSheep] = useState([]);
   const [wolfChoice, setWolfChoice] = useState(null);
 
-  useEffect(() => {
-    /*
+  /*
          NOTE:   wolfIndex sets the stage
      
-     */
+  */
+
+  useEffect(() => {
     setWolf(matchState.players[matchState.wolfIndex]);
 
     // index of next player (with wrap-around logic)
@@ -23,7 +24,6 @@ const SetTeams = () => {
       temp[i] = matchState.players[index];
       index = (index + 1) % 4;
     }
-
     setSheep(temp);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -55,28 +55,20 @@ const SetTeams = () => {
  
  */
 
-  //  ** may clean this function up a bit...  ?
   const updateRole = (playerId, role) => {
     let holeIndex = matchState.currentHole - 1;
 
     setMatchState((prevState) => {
-      // Find the golfer by id
+      // resolve player id to player index
       const playerIndex = prevState.players.findIndex(
         (player) => player.id === playerId,
       );
 
-      if (playerIndex === -1) {
-        console.error("Golfer not found");
-        return prevState;
-      }
-
+      // spread players array, then spread player object
       const updatedPlayers = [...prevState.players];
       const player = { ...updatedPlayers[playerIndex] };
 
-      // Update the score for the specific hole
       player.roles[holeIndex] = role;
-
-      // Update the golfer in the array
       updatedPlayers[playerIndex] = player;
 
       return {

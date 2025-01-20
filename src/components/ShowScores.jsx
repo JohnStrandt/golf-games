@@ -57,6 +57,7 @@ const ShowScores = () => {
       // update who is the next wolf:
       if (matchState.currentHole >= 16) {
         nextWolfIndex = getLastPlaceIndex();
+        console.log(nextWolfIndex);
       } else {
         nextWolfIndex = (matchState.wolfIndex + 1) % 4;
       }
