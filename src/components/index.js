@@ -1,5 +1,4 @@
 import { WideButton, NavButton, AccentButton } from "./Buttons";
-import WolfIcon from "./WolfIcon";
 import ScoreHoleCard from "./ScoreHoleCard";
 import ScoreHole from "./ScoreHole";
 import SetPlayers from "./SetPlayers";
@@ -14,7 +13,6 @@ export {
   WideButton,
   NavButton,
   AccentButton,
-  WolfIcon,
   ScoreHoleCard,
   ScoreHole,
   SetPlayers,

@@ -9,15 +9,11 @@ const SetTeams = () => {
   const [sheep, setSheep] = useState([]);
   const [wolfChoice, setWolfChoice] = useState(null);
 
-  const nextState = (state) => {
-    setMatchState((prevData) => ({
-      ...prevData,
-      playState: state,
-    }));
-  };
-
   useEffect(() => {
-    // wolf
+    /*
+         NOTE:   wolfIndex sets the stage
+     
+     */
     setWolf(matchState.players[matchState.wolfIndex]);
 
     // index of next player (with wrap-around logic)
@@ -36,20 +32,30 @@ const SetTeams = () => {
     setWolfChoice(event.target.value);
   };
 
-  // partner choice returns a player id, lone wolf choices return a new role
+  /*
+   
+       NOTE:    Set new roles here, default was sheep,
+                wolfIndex only cue until now
+  */
+
+  // partner choice returns a player id, blind/lone wolf returns a new role
   const setRoles = () => {
     if (wolfChoice == "lonewolf" || wolfChoice == "blindwolf") {
       updateRole(wolf.id, wolfChoice);
     } else {
+      updateRole(wolf.id, "wolf");
       updateRole(wolfChoice, "partner");
     }
     nextState("score");
   };
 
   /*
-     NOTE:  could clean up updateRole a bit 
+   
+     NOTE:   Update roles in State 
  
  */
+
+  //  ** may clean this function up a bit...  ?
   const updateRole = (playerId, role) => {
     let holeIndex = matchState.currentHole - 1;
 
@@ -78,6 +84,13 @@ const SetTeams = () => {
         players: updatedPlayers,
       };
     });
+  };
+
+  const nextState = (state) => {
+    setMatchState((prevData) => ({
+      ...prevData,
+      playState: state,
+    }));
   };
 
   return (

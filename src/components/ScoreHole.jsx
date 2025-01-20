@@ -7,7 +7,7 @@ const ScoreHole = () => {
   const [pack, setPack] = useState([]);
   const [sheep, setSheep] = useState([]);
 
-  // the scores could be initialized to a hole's par...
+  // player scores used to display and update
   const [scores, setScores] = useState({
     player1: 4,
     player2: 4,
@@ -15,20 +15,17 @@ const ScoreHole = () => {
     player4: 4,
   });
 
-  // this handles the clicking of + or - on scoring page
+  // handle player score changes + or -
   const handleScoreUpdate = (key, value) => {
     setScores((prev) => ({ ...prev, [key]: value }));
   };
 
-  const nextState = (state) => {
-    setMatchState((prevData) => ({
-      ...prevData,
-      playState: state,
-    }));
-  };
+  /*
+   *    NOTE:   Teams are assembled based on wolf's prior choice
+   */
 
   useEffect(() => {
-    let tempPlayer = []; //   pointers
+    let tempPlayer; //   pointers
     let tempPack = [];
     let tempSheep = [];
 
@@ -59,6 +56,7 @@ const ScoreHole = () => {
   }, []);
 
   const getLowest = (team) => {
+    // find best score of a team
     let best = scores[team[0].id];
     if (team.length > 1) {
       for (let i = 1; i < sheep.length; i++) {
@@ -69,8 +67,8 @@ const ScoreHole = () => {
   };
 
   const setPoints = () => {
-    // wolf status determine's points
-
+    // wolf role determine's point value of the hole
+    // default two points - wolf has a partner
     let points = 2;
     if (pack[0].roles[matchState.currentHole - 1] == "lonewolf") {
       points = 6;
@@ -81,10 +79,10 @@ const ScoreHole = () => {
   };
 
   const handleScoreHoleButton = () => {
+    // default zero points - teams tied
     let packPoints = 0;
     let sheepPoints = 0;
 
-    // find lowest score of each team
     let packBest = getLowest(pack);
     let sheepBest = getLowest(sheep);
 
@@ -100,25 +98,28 @@ const ScoreHole = () => {
         sheepPoints = points / sheep.length;
       }
     }
-
     stageUpdates(pack, packPoints);
     stageUpdates(sheep, sheepPoints);
-
     nextState("leaderboard");
   };
 
   const stageUpdates = (team, points) => {
-    // resolve player id to an index, then update score
+    // resolve player id to an index, then update
 
     team.forEach((member) => {
       const index = matchState.players.findIndex(
         (player) => player.id === member.id,
       );
-      updateScore(index, scores[member.id], points);
+      updatePlayer(index, scores[member.id], points);
     });
   };
 
-  const updateScore = (playerIndex, score, points) => {
+  /*
+   *    NOTE:   Update player scores, points, and totals
+   *
+   */
+
+  const updatePlayer = (playerIndex, score, points) => {
     setMatchState((prevMatchState) => {
       const newPlayers = [...prevMatchState.players];
       const playerData = newPlayers[playerIndex];
@@ -145,6 +146,13 @@ const ScoreHole = () => {
         players: newPlayers,
       };
     });
+  };
+
+  const nextState = (state) => {
+    setMatchState((prevData) => ({
+      ...prevData,
+      playState: state,
+    }));
   };
 
   return (
