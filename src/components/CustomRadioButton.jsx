@@ -17,7 +17,7 @@ const CustomRadioButton = ({ id, label, checked, handleChange }) => {
       />
       <label
         htmlFor={id}
-        className="w-full h-full flex flex-col text-center justify-center peer-checked:text-accent border border-base peer-checked:border-accent"
+        className="flex flex-col w-full h-full text-center justify-center peer-checked:text-accent border border-base peer-checked:border-accent"
       >
         {label}
       </label>

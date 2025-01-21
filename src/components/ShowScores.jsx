@@ -30,10 +30,8 @@ const ShowScores = () => {
     });
   }, [matchState, hole]);
 
-  //
-  //  NOTE:   Player in last place is wolf on 17 & 18
-  //          same guy can be wolf on both holes (possibly 16, 17, & 18!)
-  //
+  //    NOTE:   Players in last place are wolf on 17 & 18
+
   const getLastPlaceIndex = () => {
     let players = matchState.players;
 
@@ -57,7 +55,6 @@ const ShowScores = () => {
       // update who is the next wolf:
       if (matchState.currentHole >= 16) {
         nextWolfIndex = getLastPlaceIndex();
-        console.log(nextWolfIndex);
       } else {
         nextWolfIndex = (matchState.wolfIndex + 1) % 4;
       }
@@ -71,9 +68,7 @@ const ShowScores = () => {
     } else {
       console.log("Match Over!");
 
-      // NOTE:    update to go to final page,
-      //          Score card?  LeaderBoard?
-      //          also update button label
+      //  NOTE:   WORK ZONE
     }
   };
 

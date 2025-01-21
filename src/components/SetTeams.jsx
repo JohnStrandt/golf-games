@@ -93,9 +93,9 @@ const SetTeams = () => {
         <p className="italic">Select a partner or go it alone</p>
       </div>
 
-      <div className="flex w-4/5 h-1/2 mx-auto">
+      <div className="flex w-11/12 h-1/2 mx-auto">
         {sheep.length > 0 && (
-          <div className="w-full flex flex-col bg-background rounded-2xl text-xl space-y-2">
+          <div className="w-full flex flex-col bg-background rounded-2xl text-xl gap-1">
             {sheep.map((player) => (
               <CustomRadioButton
                 key={player.id}

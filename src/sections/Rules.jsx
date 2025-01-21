@@ -1,86 +1,68 @@
 const Rules = () => {
   return (
     <section className="flex flex-col p-2 h-[calc(100vh-80px)] overflow-auto bg-background text-primary">
-      <h1 className="mt-4 mb-10 text-center text-3xl font-normal">Wolf</h1>
+      <div className="mt-4 mb-8 text-center">
+        <h1 className="text-3xl pb-1">Wolf</h1>
+        <p className="text-center">Better-Ball format</p>
+      </div>
 
-      <div className="mb-8">
-        <h2 className="text-lg font-semibold mb-2">Order of Play</h2>
-        <p className="mb-2">
+      <h2 className="text-lg text-center mb-2">Order of Play</h2>
+      <div className="space-y-4 mb-8">
+        <p>
           You first have to determine the teeing order (your choice on the
           method). This order doesn’t change. The role of wolf rotates on each
           hole, and the wolf always has the honors.
-          <br />
-          <br />
-          <span className="font-bold">Holes 17 and 18: </span>Everyone has been
-          wolf four times and there are two holes left. The players that are
-          behind in points become the wolf.
-          <br />
-          <br />
+        </p>
+        <p>
+          <span className="font-semibold">Holes 17 and 18: </span>Everyone has
+          been wolf four times and there are two holes left. The players that
+          are behind in points become the wolf.
+        </p>
+        <p>
           The app always displays the correct teeing order when players are on
-          the tee box and the wolf is choosing on partner.
+          the tee box and the wolf is choosing to partner or go solo.
         </p>
       </div>
-      <div>
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold mb-2">Wolf Choices</h2>
-          <div className="pl-3">
-            <ul className="list-disc">
+
+      <div className="mb-4">
+        <h2 className="text-lg text-center mb-2">Scoring</h2>
+        <ul className="space-y-2">
+          <li>
+            Ties
+            <ol className="ps-4 list-inside">
+              <li>Zero points for ties</li>
+            </ol>
+          </li>
+
+          <li>
+            Partners
+            <ol className="ps-4 list-inside">
+              <li>Winning side share two points</li>
               <li>
-                <span className="text-lg">Partners</span>
-                <br />
-                After one player hits their tee shot, the Wolf needs to decide
-                if they want them as a partner before the next player hits their
-                tee shot.
+                Wolf needs to decide if they want someone as a partner before
+                the next guy hits.
               </li>
-              <li>
-                <span className="text-lg">Lone Wolf </span>
-                <span className="italic">Points Double</span>
-                <br />
-                Can be called at any time on the tee box.
-              </li>
-              <li>
-                <span className="text-lg">Blind Wolf </span>
-                <span className="italic">Points Triple</span>
-                <br />
-                Must be called before ANYONE hits!
-                <br />
-                You may decide not to implement this rule as it can be brutal.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Scoring</h2>
-          <div className="pl-3">
-            <ul className="list-disc">
-              <li>
-                <span className="text-lg">Better Ball format</span>
-                <br />
-                Lowest score on each side is the one used.
-              </li>
-              <li>
-                <span className="text-lg">Ties</span>
-                <br />
-                Zero points for ties.
-              </li>
-              <li>
-                <span className="text-lg">Partners</span>
-                <br />
-                Winning side shares two points.
-              </li>
-              <li>
-                <span className="text-lg">Lone Wolf</span>
-                <br />
-                Winning side shares six points.
-              </li>
-              <li>
-                <span className="text-lg">Blind Wolf</span>
-                <br />
-                Winning side shares nine points.
-              </li>
-            </ul>
-          </div>
-        </div>
+            </ol>
+          </li>
+
+          <li>
+            Lone Wolf
+            <ol className="ps-4 list-inside">
+              <li>Points double</li>
+              <li>Winning side share six points</li>
+              <li>Can be called at any time on the tee box.</li>
+            </ol>
+          </li>
+
+          <li>
+            Blind Wolf
+            <ol className="ps-4 list-inside">
+              <li>Points triple</li>
+              <li>Winning side share nine points</li>
+              <li>Must be called before ANYONE hits!</li>
+            </ol>
+          </li>
+        </ul>
       </div>
     </section>
   );
