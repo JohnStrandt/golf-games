@@ -13,7 +13,7 @@ const MatchProvider = ({ children }) => {
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
-        scoreTotal: 0,
+        strokeTotal: 0,
         pointTotal: 0,
       },
       {
@@ -22,7 +22,7 @@ const MatchProvider = ({ children }) => {
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
-        scoreTotal: 0,
+        strokeTotal: 0,
         pointTotal: 0,
       },
       {
@@ -31,7 +31,7 @@ const MatchProvider = ({ children }) => {
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
-        scoreTotal: 0,
+        strokeTotal: 0,
         pointTotal: 0,
       },
       {
@@ -40,7 +40,7 @@ const MatchProvider = ({ children }) => {
         roles: Array(18).fill("sheep"),
         scores: Array(18).fill(0),
         points: Array(18).fill(0),
-        scoreTotal: 0,
+        strokeTotal: 0,
         pointTotal: 0,
       },
     ],

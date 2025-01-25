@@ -1,4 +1,10 @@
-import { SetPlayers, SetTeams, ScoreHole, ShowScores } from "../components";
+import {
+  SetPlayers,
+  SetTeams,
+  ScoreHole,
+  ShowScores,
+  ShowLeaderboard,
+} from "../components";
 
 import { use } from "react";
 import { MatchContext } from "../state";
@@ -14,7 +20,8 @@ const Match = () => {
       {state == "setup" && <SetPlayers count={playerCount} />}
       {state == "teams" && <SetTeams />}
       {state == "score" && <ScoreHole />}
-      {state == "leaderboard" && <ShowScores />}
+      {state == "showscores" && <ShowScores />}
+      {state == "leaderboard" && <ShowLeaderboard />}
     </section>
   );
 };

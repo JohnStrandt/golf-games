@@ -100,7 +100,7 @@ const ScoreHole = () => {
     }
     stageUpdates(pack, packPoints);
     stageUpdates(sheep, sheepPoints);
-    nextState("leaderboard");
+    nextState("showscores");
   };
 
   const stageUpdates = (team, points) => {
@@ -130,14 +130,14 @@ const ScoreHole = () => {
       newScores[prevMatchState.currentHole - 1] = score;
       newPoints[prevMatchState.currentHole - 1] = points;
 
-      const newScoreTotal = newScores.reduce((sum, s) => sum + s, 0);
+      const newStrokeTotal = newScores.reduce((sum, s) => sum + s, 0);
       const newPointTotal = newPoints.reduce((sum, s) => sum + s, 0);
 
       newPlayers[playerIndex] = {
         ...playerData,
         scores: newScores,
         points: newPoints,
-        scoreTotal: newScoreTotal,
+        strokeTotal: newStrokeTotal,
         pointTotal: newPointTotal,
       };
 

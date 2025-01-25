@@ -15,8 +15,10 @@ const Rules = () => {
         </p>
         <p>
           <span className="font-semibold">Holes 17 and 18: </span>Everyone has
-          been wolf four times and there are two holes left. The players that
-          are behind in points become the wolf.
+          been wolf four times and there are two holes left. The player in last
+          place is made the wolf on the following hole. If there is a tie for
+          last place, a random (last place) player is chosen as wolf. So pay
+          attention!
         </p>
         <p>
           The app always displays the correct teeing order when players are on
