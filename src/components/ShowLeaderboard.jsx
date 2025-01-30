@@ -10,15 +10,21 @@ const ShowLeaderboard = () => {
   players.sort((a, b) => b.pointTotal - a.pointTotal);
 
   return (
-    <div className="gap-2">
+    <div className="flex flex-col gap-1 text-primary">
       {players.map((player) => (
-        <div key={player.id} className="bg-background">
-          <div className="text-primary text-center text=xl">{player.name}</div>
-          <div className="text-primary text-center">
-            Strokes: {player.strokeTotal}
+        <div key={player.id} className="flex bg-base py-4">
+          <div className="flex w-1/2 justify-center items-center">
+            <span className="text-accent text-2xl">{player.name}</span>
           </div>
-          <div className="text-primary text-center">
-            Points: {player.pointTotal}
+
+          <div className="flex flex-col w-1/4 text-center">
+            <span className="text-accent text-2xl">{player.pointTotal}</span>
+            <span className="text-sm">points</span>
+          </div>
+
+          <div className="flex flex-col w-1/4 text-center">
+            <span className="text-accent text-2xl">{player.strokeTotal}</span>
+            <span className="text-sm">strokes</span>
           </div>
         </div>
       ))}

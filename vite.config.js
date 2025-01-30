@@ -3,6 +3,10 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
+  define: {
+    // this define section added with serviceworker files
+    "process.env": {},
+  },
   plugins: [
     react(),
     VitePWA({
@@ -14,6 +18,7 @@ export default defineConfig({
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#000000",
+        orientation: "portrait",
         icons: [
           {
             src: "favicons/apple-touch-icon.png",
